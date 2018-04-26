@@ -15,7 +15,7 @@ var LinkedList = function() {
     // increment size
     list.size++;
     
-    if(list.head === null) {
+    if (list.head === null) {
       // empty list
       list.head = newNode;
       list.tail = newNode;
@@ -31,9 +31,9 @@ var LinkedList = function() {
 
   // test asks to return the 'value'
   list.removeHead = function() {
-    if(list.size === 0) {
+    if (list.size === 0) {
       return null;
-    } else if(list.size === 1) {
+    } else if (list.size === 1) {
       // get node at list.head
       //Node headNode = list.head;
       var headNode = list.head;
@@ -63,11 +63,11 @@ var LinkedList = function() {
 
   list.contains = function(target) {
     // if list.size === 0, return false
-    if(list.size === 0) {
+    if (list.size === 0) {
       return false;
     }
     // else if list.size === 1, determine if list.head.value === targer ... true/false
-    else if(list.size === 1) {
+    else if (list.size === 1) {
       return list.head.value === target;
     }
     // else starting at list.head, traverse linked list to
@@ -75,11 +75,11 @@ var LinkedList = function() {
     else {
       var node = list.head;
       do {
-        if(node.value === target) {
+        if (node.value === target) {
           return true;
         }
         node = node.next;
-      } while(node);
+      } while (node);
       return false;
     }
   };
@@ -106,4 +106,7 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+
+O(n)
+
  */
