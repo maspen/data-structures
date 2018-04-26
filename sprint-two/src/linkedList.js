@@ -84,12 +84,6 @@ var LinkedList = function() {
     }
   };
 
-  list.swapTailWithNew = function(existingTail, newTail) {
-    //get tail node
-    // assign its node.next to newTail
-    // set list.tail = newTail
-  };
-
   return list;
 };
 
