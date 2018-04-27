@@ -16,39 +16,25 @@ var treeMethods = {
     this.children.push(newChild);
   },
   contains: function(target) {
-    // iterate over this.children
-    // if(this.value === target){
-    //   return true;
-    // } else if(this.children.length === 0) {
-    //   return false;
-    // } else {
       // recursive
+      var isFound = false;
       var findValInChild = function(tree) {
-        debugger;
         if (tree.value === target) {
-          return true;
+          isFound = true;
+          return;
         }
-        if (tree.children.length > 0) {
-          for (var i = 0; i < tree.children.length; i++) {
-            findValInChild(tree.children[i]);
-          }
+        for (var i = 0; i < tree.children.length; i++) {
+          findValInChild(tree.children[i]);
         }
       };
 
-      return findValInChild(this);
-      // return false; 
-    // }
+      findValInChild(this);
+      return isFound;
   }
 };
 
-// treeMethods.addChild = function(value) {
-// };
-
-// treeMethods.contains = function(target) {
-// };
-
-
-
 /*
  * Complexity: What is the time complexity of the above functions?
+
+O(n) worst case since you need to traverse whole tree
  */
