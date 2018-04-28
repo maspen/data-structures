@@ -10,7 +10,7 @@ var binTreeMethods = {
   insert: function(value){
   // input: value
   // output:
-  debugger;
+  // debugger;
     var insertTreeBranch = function(tree){
       // console.log(tree);
       if (value > tree.value) {
