@@ -13,11 +13,10 @@ HashTable.prototype.insert = function(k, v) {
   }
   var tupleArrayAtIndex = this._storage.get(index);
   var replaced = false;
-  for (var i = 0; i < tupleArrayAtIndex; i++) {
+  for (var i = 0; i < tupleArrayAtIndex.length; i++) {
     if (tupleArrayAtIndex[i][0] === k) {
       tupleArrayAtIndex[i] = [k, v];
       !replaced;
-      break;
     }
   }
   if (!replaced) {
@@ -41,13 +40,19 @@ HashTable.prototype.retrieve = function(k) {
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  this._storage.delete(index);
+  var bucket = this._storage.get(index);
+  for (var i = 0; i < bucket.length; i++) {
+    if (bucket[i][0] === k) {
+      bucket[i].splice(i, 1);
+    }
+  }
 };
 
 
 
 /*
  * Complexity: What is the time complexity of the above functions?
+  O(n) - we have the first index, so we only need to iterate throughthe contents of the bucket array
  */
 
 
